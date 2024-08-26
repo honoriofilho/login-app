@@ -18,6 +18,8 @@ struct ContentView: View {
                 .tabItem {
                     Label("Contatos", systemImage: "person.fill")
                 }
+            LoginView()
+                .tabItem { Label("Login", systemImage: "globe") }
         }
     }
 }

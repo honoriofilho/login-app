@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @StateObject private var viewModel = UserViewModel()
     @State var username: String = ""
     @State var password: String = ""
     
@@ -18,15 +19,19 @@ struct LoginView: View {
                 .font(.largeTitle)
                 .fontWeight(.semibold)
             TextField("Username", text: $username)
+                .autocapitalization(.none)
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
             TextField("Password", text: $password)
+                .autocapitalization(.none)
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
             Button {
-                
+                Task {
+                    await viewModel.loginUser(username: username, password: password)
+                }
             } label: {
                 Text("Login")
             }

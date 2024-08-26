@@ -21,18 +21,21 @@ struct CreateUserView: View {
                     .fontWeight(.semibold)
 
                 TextField("Username", text: $username)
+                    .autocapitalization(.none)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
                 
                 // Campo de Name
                 TextField("Name", text: $name)
+                    .autocapitalization(.none)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
 
                 // Campo de Password
                 SecureField("Password", text: $password)
+                    .autocapitalization(.none)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(10)

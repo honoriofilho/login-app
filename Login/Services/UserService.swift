@@ -9,26 +9,18 @@ import Foundation
 
 enum UserServiceError: Error {
     case InvalidURL
-    case InvalidResponse
+    case InvalidResponsecase(code: Int, body: Data?)
     case decodingError
 }
 
 struct UserService {
-    func getUsers() async throws -> [User]? {
-        
-        let urlString = "http://maionese.local:8080"
-        
-        guard let baseURL = URL(string: urlString) else {
-            throw UserServiceError.InvalidURL
-        }
-        
+    func getUsers(on baseURL: URL) async throws -> [User]? {
+                
         let url = baseURL.appending(path: "users")
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
-        guard response is HTTPURLResponse else {
-            throw UserServiceError.InvalidResponse
-        }
+        try checkConection(data: data, response: response)
         
         do {
             let users = try JSONDecoder().decode([User].self, from: data)
@@ -38,13 +30,33 @@ struct UserService {
         }
     }
     
-    func createUser(username: String, name: String, password: String) async throws {
+    func updateBio(on baseURL: URL, token: String, bio: String) async throws {
+        let url = baseURL.appending(path: "users/bio")
+                
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+        request.httpBody = bio.data(using: .utf8)
         
-        let urlString = "http://maionese.local:8080"
+        let (data, response) = try await URLSession.shared.data(for: request)
         
-        guard let baseURL = URL(string: urlString) else {
-            throw UserServiceError.InvalidURL
+        try checkConection(data: data, response: response)
+    }
+    
+    func checkConection(data: Data?, response: URLResponse) throws {
+        if let response = response as? HTTPURLResponse {
+            switch response.statusCode {
+            case 200..<300:
+                print("😸 Sucesso! \(response.statusCode)")
+            default:
+                print("🙀 Erro \(response.statusCode)")
+                throw UserServiceError.InvalidResponsecase(code: response.statusCode, body: data)
+            }
         }
+    }
+    
+    func createUser(on baseURL: URL, username: String, name: String, password: String) async throws -> String {
         
         let url = baseURL.appending(path: "users")
         
@@ -58,5 +70,32 @@ struct UserService {
         ]
         
         let (data, response) = try await URLSession.shared.data(for: request)
+        
+        try checkConection(data: data, response: response)
+        
+        let session = try JSONDecoder().decode(Session.self, from: data)
+
+        return session.token
+    }
+    
+    func login(on baseURL: URL, username: String, password: String) async throws -> String {
+        
+        let url = baseURL.appending(path: "users/login")
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        let auth = (username + ":" + password).data(using: .utf8)!.base64EncodedString()
+
+        request.setValue("Basic \(auth)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        try checkConection(data: data, response: response)
+
+        let session = try JSONDecoder().decode(Session.self, from: data)
+
+        return session.token
     }
 }

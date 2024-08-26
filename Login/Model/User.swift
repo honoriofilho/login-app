@@ -12,6 +12,7 @@ struct User: Codable {
     var username: String
     var name: String
     var avatar: String?
+    var bio: String?
 }
 
 extension User {

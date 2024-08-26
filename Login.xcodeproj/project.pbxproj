@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771D8A082C7B7B0A00524006 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D8A072C7B7B0A00524006 /* Security.framework */; };
+		771D8A0A2C7B7C3800524006 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D8A092C7B7C3800524006 /* KeychainManager.swift */; };
 		7732C27C2C777D7F00A8B743 /* LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732C27B2C777D7F00A8B743 /* LoginApp.swift */; };
 		7732C27E2C777D7F00A8B743 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732C27D2C777D7F00A8B743 /* ContentView.swift */; };
 		7732C2802C777D8100A8B743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7732C27F2C777D8100A8B743 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		771D8A072C7B7B0A00524006 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		771D8A092C7B7C3800524006 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		7732C2782C777D7F00A8B743 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7732C27B2C777D7F00A8B743 /* LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApp.swift; sourceTree = "<group>"; };
 		7732C27D2C777D7F00A8B743 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,17 +42,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771D8A082C7B7B0A00524006 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		771D8A062C7B7B0A00524006 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				771D8A072C7B7B0A00524006 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7732C26F2C777D7F00A8B743 = {
 			isa = PBXGroup;
 			children = (
 				7732C27A2C777D7F00A8B743 /* Login */,
 				7732C2792C777D7F00A8B743 /* Products */,
+				771D8A062C7B7B0A00524006 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				7732C28D2C777DD500A8B743 /* UserService.swift */,
+				771D8A092C7B7C3800524006 /* KeychainManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,6 +206,7 @@
 				7732C28E2C777DD500A8B743 /* UserService.swift in Sources */,
 				77491CFB2C78ABD600462B31 /* CreateUserView.swift in Sources */,
 				7732C27E2C777D7F00A8B743 /* ContentView.swift in Sources */,
+				771D8A0A2C7B7C3800524006 /* KeychainManager.swift in Sources */,
 				7732C2912C779D6D00A8B743 /* UserViewModel.swift in Sources */,
 				7732C27C2C777D7F00A8B743 /* LoginApp.swift in Sources */,
 				77491CFF2C78AEED00462B31 /* LoginView.swift in Sources */,
