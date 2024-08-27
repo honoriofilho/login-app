@@ -20,6 +20,11 @@ struct ContentView: View {
                 }
             LoginView()
                 .tabItem { Label("Login", systemImage: "globe") }
+            NavigationStack {
+                PostView()
+                    .navigationTitle("Feed")
+            }
+            .tabItem { Label("Feed", systemImage: "star") }
         }
     }
 }

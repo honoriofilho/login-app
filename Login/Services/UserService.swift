@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserServiceError: Error {
+enum ServiceError: Error {
     case InvalidURL
     case InvalidResponsecase(code: Int, body: Data?)
     case decodingError
@@ -26,7 +26,7 @@ struct UserService {
             let users = try JSONDecoder().decode([User].self, from: data)
             return users
         } catch {
-            throw UserServiceError.decodingError
+            throw ServiceError.decodingError
         }
     }
     
@@ -51,7 +51,7 @@ struct UserService {
                 print("😸 Sucesso! \(response.statusCode)")
             default:
                 print("🙀 Erro \(response.statusCode)")
-                throw UserServiceError.InvalidResponsecase(code: response.statusCode, body: data)
+                throw ServiceError.InvalidResponsecase(code: response.statusCode, body: data)
             }
         }
     }

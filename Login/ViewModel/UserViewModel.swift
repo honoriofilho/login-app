@@ -45,6 +45,7 @@ class UserViewModel: ObservableObject {
         do {
             let session = try await userService.login(on: baseURL, username: username, password: password)
             let data = session.data(using: .utf8)!
+            keychain.deleteData(forService: service, account: username)
             if keychain.storeData(data: data, forService: service, account: username) {
                 print("Token salvo no Keychain")
             } else {
@@ -53,7 +54,6 @@ class UserViewModel: ObservableObject {
             if let retrievedData = keychain.readData(forService: service, account: username) {
                 let session = String(data: retrievedData, encoding: .utf8)
             }
-            print(session)
             Task {
                 await updateBio(token: session, bio: "Miau")
             }

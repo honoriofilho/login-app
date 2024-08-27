@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		771D8A082C7B7B0A00524006 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D8A072C7B7B0A00524006 /* Security.framework */; };
 		771D8A0A2C7B7C3800524006 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D8A092C7B7C3800524006 /* KeychainManager.swift */; };
+		77279ABE2C7DF4F500605E6A /* ImagePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77279ABD2C7DF4F500605E6A /* ImagePostView.swift */; };
 		7732C27C2C777D7F00A8B743 /* LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732C27B2C777D7F00A8B743 /* LoginApp.swift */; };
 		7732C27E2C777D7F00A8B743 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732C27D2C777D7F00A8B743 /* ContentView.swift */; };
 		7732C2802C777D8100A8B743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7732C27F2C777D8100A8B743 /* Assets.xcassets */; };
@@ -19,11 +20,17 @@
 		77491CFB2C78ABD600462B31 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77491CFA2C78ABD600462B31 /* CreateUserView.swift */; };
 		77491CFD2C78ABF300462B31 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77491CFC2C78ABF300462B31 /* UserListView.swift */; };
 		77491CFF2C78AEED00462B31 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77491CFE2C78AEED00462B31 /* LoginView.swift */; };
+		776073212C7CC075001A95AE /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776073202C7CC075001A95AE /* PostView.swift */; };
+		776073232C7CC4DF001A95AE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776073222C7CC4DF001A95AE /* Post.swift */; };
+		776073252C7CC62E001A95AE /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776073242C7CC62E001A95AE /* PostViewModel.swift */; };
+		776073272C7CC6C9001A95AE /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776073262C7CC6C9001A95AE /* PostService.swift */; };
+		776073292C7CF88B001A95AE /* CreatPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776073282C7CF88B001A95AE /* CreatPostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		771D8A072C7B7B0A00524006 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		771D8A092C7B7C3800524006 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		77279ABD2C7DF4F500605E6A /* ImagePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostView.swift; sourceTree = "<group>"; };
 		7732C2782C777D7F00A8B743 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7732C27B2C777D7F00A8B743 /* LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApp.swift; sourceTree = "<group>"; };
 		7732C27D2C777D7F00A8B743 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +42,11 @@
 		77491CFA2C78ABD600462B31 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		77491CFC2C78ABF300462B31 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		77491CFE2C78AEED00462B31 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		776073202C7CC075001A95AE /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		776073222C7CC4DF001A95AE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		776073242C7CC62E001A95AE /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		776073262C7CC6C9001A95AE /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		776073282C7CF88B001A95AE /* CreatPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatPostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				7732C28B2C777DA300A8B743 /* User.swift */,
+				776073222C7CC4DF001A95AE /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +123,7 @@
 			children = (
 				7732C28D2C777DD500A8B743 /* UserService.swift */,
 				771D8A092C7B7C3800524006 /* KeychainManager.swift */,
+				776073262C7CC6C9001A95AE /* PostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -118,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				7732C2902C779D6D00A8B743 /* UserViewModel.swift */,
+				776073242C7CC62E001A95AE /* PostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,6 +143,9 @@
 				77491CFA2C78ABD600462B31 /* CreateUserView.swift */,
 				77491CFC2C78ABF300462B31 /* UserListView.swift */,
 				77491CFE2C78AEED00462B31 /* LoginView.swift */,
+				776073202C7CC075001A95AE /* PostView.swift */,
+				776073282C7CF88B001A95AE /* CreatPostView.swift */,
+				77279ABD2C7DF4F500605E6A /* ImagePostView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,7 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				776073252C7CC62E001A95AE /* PostViewModel.swift in Sources */,
+				77279ABE2C7DF4F500605E6A /* ImagePostView.swift in Sources */,
 				77491CFD2C78ABF300462B31 /* UserListView.swift in Sources */,
+				776073232C7CC4DF001A95AE /* Post.swift in Sources */,
 				7732C28E2C777DD500A8B743 /* UserService.swift in Sources */,
 				77491CFB2C78ABD600462B31 /* CreateUserView.swift in Sources */,
 				7732C27E2C777D7F00A8B743 /* ContentView.swift in Sources */,
@@ -210,6 +231,9 @@
 				7732C2912C779D6D00A8B743 /* UserViewModel.swift in Sources */,
 				7732C27C2C777D7F00A8B743 /* LoginApp.swift in Sources */,
 				77491CFF2C78AEED00462B31 /* LoginView.swift in Sources */,
+				776073272C7CC6C9001A95AE /* PostService.swift in Sources */,
+				776073212C7CC075001A95AE /* PostView.swift in Sources */,
+				776073292C7CF88B001A95AE /* CreatPostView.swift in Sources */,
 				7732C28C2C777DA300A8B743 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
